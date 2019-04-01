@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+// import the ScheduleModule for the Schedule component
+import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
+import { SchedulerComponent } from './scheduler.component';
+import { SchedulerRoutingModule } from './scheduler-routing.module';
+
 
 @NgModule({
-  declarations: [],
+  declarations: [SchedulerComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    ScheduleModule,
+    SchedulerRoutingModule
   ]
 })
 export class SchedulerModule { }
