@@ -10,4 +10,12 @@
 
 export const environment = {
   production: false,
+  firebaseConfig :{
+    apiKey: "AIzaSyDKyE2LcMbvrvy7CRInDPjAZLjx2xU--T4",
+    authDomain: "hairforyou-2b7f8.firebaseapp.com",
+    databaseURL: "https://hairforyou-2b7f8.firebaseio.com",
+    projectId: "hairforyou-2b7f8",
+    storageBucket: "hairforyou-2b7f8.appspot.com",
+    messagingSenderId: "983377625388"
+  }
 };
