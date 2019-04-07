@@ -6,6 +6,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Sheduler',
     icon: 'nb-home',
     link: '/pages/scheduler',
+  
+  },
+  {
+    title: 'Patients',
+    icon: 'nb-home',
+    link: '/pages/patients',
     
   },
   {

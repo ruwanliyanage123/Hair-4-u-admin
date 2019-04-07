@@ -19,6 +19,10 @@ const routes: Routes = [{
   {
     path: 'scheduler',
     loadChildren: './scheduler/scheduler.module#SchedulerModule',
+  },
+  {
+    path: 'patients',
+    loadChildren: './patients/patients.module#PatientsModule',
   }, 
   {
     path: 'ui-features',
