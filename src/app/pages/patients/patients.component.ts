@@ -1,18 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import { PatientsService } from './patients.service';
+import { Patients } from './patients.model';
 
 @Component({
   selector: 'ngx-patients',
   styles:[],
   template: `
-  <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+  <ng2-smart-table [settings]="settings" [source]="list">
+  </ng2-smart-table>
   `
-  
 })
 export class PatientsComponent implements OnInit {
-
-  constructor() { }
+  
+  list : Patients[];
+  constructor(private service : PatientsService) { }
 
   ngOnInit() {
+    this.service.getPatients().subscribe(actionArray =>{
+      this.list = actionArray.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        } as Patients;
+      })
+    });
   }
 
   settings = {
@@ -45,27 +56,5 @@ export class PatientsComponent implements OnInit {
       }
     }
   };
-
-  data = [
-    {
-      id: 1,
-      name: "Leanne Graham",
-      username: "Bret",
-      email: "Sincere@april.biz"
-    },
-    {
-      id: 2,
-      name: "Ervin Howell",
-      username: "Antonette",
-      email: "Shanna@melissa.tv"
-    },
-  
-    {
-      id: 11,
-      name: "Nicholas DuBuque",
-      username: "Nicholas.Stanton",
-      email: "Rey.Padberg@rosamond.biz"
-    }
-  ];
 
 }
