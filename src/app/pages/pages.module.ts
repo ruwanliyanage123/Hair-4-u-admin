@@ -6,6 +6,7 @@ import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
+import { PatientsComponent } from './patients/patients.component';
 
 
 const PAGES_COMPONENTS = [
@@ -22,6 +23,7 @@ const PAGES_COMPONENTS = [
   ],
   declarations: [
     ...PAGES_COMPONENTS,
+    PatientsComponent,
     
   ],
 })
