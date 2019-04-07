@@ -41,8 +41,8 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'auth', pathMatch: 'full' },
-  { path: '**', redirectTo: 'auth' },
+  { path: '', redirectTo: 'Pages', pathMatch: 'full' },
+  { path: '**', redirectTo: 'Pages' },
 ];
 
 const config: ExtraOptions = {
