@@ -26,11 +26,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/saloon',
     
   },
-  {
-    title: 'Chats',
-    icon: 'nb-star',
-    link: '/pages/extra-components/chat',
-  },
+  // {
+  //   title: 'Chats',
+  //   icon: 'nb-star',
+  //   link: '/pages/extra-components/chat',
+  // },
   {
     title: 'Maps',
     icon: 'nb-location',
