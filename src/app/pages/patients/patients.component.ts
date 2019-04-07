@@ -6,23 +6,24 @@ import { Patients } from './patients.model';
   selector: 'ngx-patients',
   styles:[],
   template: `
-  <ng2-smart-table [settings]="settings" [source]="list">
+  <ng2-smart-table  (createConfirm)="addData($event)" [settings]="settings" [source]="list">
   </ng2-smart-table>
   `
 })
 export class PatientsComponent implements OnInit {
   
-  list : Patients[];
+  list : Patients[]=[];
   constructor(private service : PatientsService) { }
 
   ngOnInit() {
     this.service.getPatients().subscribe(actionArray =>{
-      this.list = actionArray.map(item => {
-        return {
-          id: item.payload.doc.id,
-          ...item.payload.doc.data()
-        } as Patients;
-      })
+
+
+      let a=actionArray.payload.get('data')
+      if(a){
+        
+      this.list =a
+      }
     });
   }
 
@@ -31,6 +32,7 @@ export class PatientsComponent implements OnInit {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmCreate:true
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
@@ -56,5 +58,14 @@ export class PatientsComponent implements OnInit {
       }
     }
   };
+
+  addData(event){
+
+    this.list.push(event.newData)
+    console.log(this.list)
+    this.service.addPatient({data:this.list}).subscribe(next=>{
+      event.confirm.reject();
+    });
+  }
 
 }
