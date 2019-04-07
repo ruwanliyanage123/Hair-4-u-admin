@@ -23,6 +23,14 @@ const routes: Routes = [{
   {
     path: 'patients',
     loadChildren: './patients/patients.module#PatientsModule',
+  },
+  {
+    path: 'manufacture',
+    loadChildren: './manufacture/manufacture.module#ManufactureModule',
+  }, 
+  {
+    path: 'saloon',
+    loadChildren: './saloon/saloon.module#SaloonModule',
   }, 
   {
     path: 'ui-features',
