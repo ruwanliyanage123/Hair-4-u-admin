@@ -46,8 +46,6 @@ export class PatientsComponent implements OnInit {
     }
   };
 
-
-
   data = [
     {
       id: 1,
