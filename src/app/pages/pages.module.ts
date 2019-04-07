@@ -7,6 +7,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { ManufactureComponent } from './manufacture/manufacture.component';
+import { SaloonComponent } from './saloon/saloon.component';
 
 
 
@@ -25,6 +26,7 @@ const PAGES_COMPONENTS = [
   declarations: [
     ...PAGES_COMPONENTS,
     ManufactureComponent,
+    SaloonComponent,
     
   ],
 })
