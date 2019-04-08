@@ -31,11 +31,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
   //   icon: 'nb-star',
   //   link: '/pages/extra-components/chat',
   // },
-  {
-    title: 'Maps',
-    icon: 'nb-location',
-    link: '/pages/maps/gmaps', 
-  },
+  // {
+  //   title: 'Maps',
+  //   icon: 'nb-location',
+  //   link: '/pages/maps/gmaps', 
+  // },
   {
     title: 'Charts',
     icon: 'nb-bar-chart',
@@ -46,32 +46,32 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-title',
     link: '/pages/editors/ckeditor',
   },
-  {
-    title: 'Tables',
-    icon: 'nb-tables',
-    link: '/pages/tables/smart-table', 
-  },
+  // {
+  //   title: 'Tables',
+  //   icon: 'nb-tables',
+  //   link: '/pages/tables/smart-table', 
+  // },
 
-  {
-    title: 'Auth',
-    icon: 'nb-locked',
-    children: [
-      {
-        title: 'Login',
-        link: '/auth/login',
-      },
-      {
-        title: 'Register',
-        link: '/auth/register',
-      },
-      {
-        title: 'Request Password',
-        link: '/auth/request-password',
-      },
-      {
-        title: 'Reset Password',
-        link: '/auth/reset-password',
-      },
-    ],
-  },
+  // {
+  //   title: 'Auth',
+  //   icon: 'nb-locked',
+  //   children: [
+  //     {
+  //       title: 'Login',
+  //       link: '/auth/login',
+  //     },
+  //     {
+  //       title: 'Register',
+  //       link: '/auth/register',
+  //     },
+  //     {
+  //       title: 'Request Password',
+  //       link: '/auth/request-password',
+  //     },
+  //     {
+  //       title: 'Reset Password',
+  //       link: '/auth/reset-password',
+  //     },
+  //   ],
+  // },
 ];
