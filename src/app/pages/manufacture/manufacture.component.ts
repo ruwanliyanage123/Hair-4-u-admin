@@ -21,7 +21,7 @@ export class ManufactureComponent implements OnInit {
 
   ngOnInit() {
     this.service.getManufacture().subscribe(arr => {
-      let manu_list = arr.payload.get('event');
+      let manu_list = arr.payload.get('manufact');
       if (manu_list) {
         this.manu = manu_list;
       }
@@ -45,14 +45,20 @@ export class ManufactureComponent implements OnInit {
       confirmDelete: true
     },
     columns: {
-      id: {
-        title: 'ID'
+      shopname: {
+        title: 'Shop Name'
       },
-      name: {
-        title: 'Full Name'
+      ownername: {
+        title: 'Owner Name'
       },
-      username: {
-        title: 'User Name'
+      nic: {
+        title: 'NIC'
+      },
+      contactno: {
+        title: 'ContactNo'
+      },
+      address: {
+        title: 'Address'
       },
       email: {
         title: 'Email'
@@ -62,8 +68,8 @@ export class ManufactureComponent implements OnInit {
 
   addData(data) {
     this.manu.push(data.newData);
-    //console.log(this.manu);
-    this.service.addManufacture({ event: this.manu }).subscribe(next => {
+    console.log(this.manu);
+    this.service.addManufacture({ manufact: this.manu }).subscribe(next => {
       data.confirm.reject();
     });
   }

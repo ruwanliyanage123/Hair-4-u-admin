@@ -1,6 +1,8 @@
 export class Manufacture {
-  id: string;
-  name: string;
-  username: string;
+  shopname: string;
+  ownername: string;
+  nic: string;
+  contactno: string;
+  address: string;
   email: string;
 }
