@@ -2,32 +2,30 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ngx-manufacture',
-  styles:[],
+  styles: [],
   template: `
-  <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+    <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
   `
 })
 export class ManufactureComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
+      cancelButtonContent: '<i class="nb-close"></i>'
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
+      cancelButtonContent: '<i class="nb-close"></i>'
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
+      confirmDelete: true
     },
     columns: {
       id: {
@@ -48,25 +46,22 @@ export class ManufactureComponent implements OnInit {
   data = [
     {
       id: 1,
-      name: "Leanne Graham",
-      username: "Bret",
-      email: "Sincere@april.biz"
+      name: 'Leanne Graham',
+      username: 'Bret',
+      email: 'Sincere@april.biz'
     },
     {
       id: 2,
-      name: "Ervin Howell",
-      username: "Antonette",
-      email: "Shanna@melissa.tv"
+      name: 'Ervin Howell',
+      username: 'Antonette',
+      email: 'Shanna@melissa.tv'
     },
-  
+
     {
       id: 11,
-      name: "Nicholas DuBuque",
-      username: "Nicholas.Stanton",
-      email: "Rey.Padberg@rosamond.biz"
+      name: 'Nicholas DuBuque',
+      username: 'Nicholas.Stanton',
+      email: 'Rey.Padberg@rosamond.biz'
     }
   ];
-
-
-
 }
