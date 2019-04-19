@@ -1,55 +1,78 @@
 import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
-  
   {
     title: 'Sheduler',
     icon: 'nb-home',
-    link: '/pages/scheduler',
-  
+    link: '/pages/scheduler'
   },
   {
     title: 'Patients',
     icon: 'nb-home',
-    link: '/pages/patients',
-    
+    //link: '/pages/patients'
+    children: [
+      {
+        title: 'Proccessing',
+        link: '/pages/maps/gmaps'
+      },
+      {
+        title: 'Completed',
+        link: '/pages/maps/leaflet'
+      }
+    ]
   },
   {
     title: 'Manufacture',
     icon: 'nb-home',
-    link: '/pages/manufacture',
-    
+    link: '/pages/manufacture'
   },
   {
     title: 'Saloon',
     icon: 'nb-home',
-    link: '/pages/saloon',
-    
+    link: '/pages/saloon'
   },
   // {
   //   title: 'Chats',
   //   icon: 'nb-star',
   //   link: '/pages/extra-components/chat',
   // },
+
   // {
   //   title: 'Maps',
   //   icon: 'nb-location',
-  //   link: '/pages/maps/gmaps', 
+  //   children: [
+  //     {
+  //       title: 'Google Maps',
+  //       link: '/pages/maps/gmaps'
+  //     },
+  //     {
+  //       title: 'Leaflet Maps',
+  //       link: '/pages/maps/leaflet'
+  //     },
+  //     {
+  //       title: 'Bubble Maps',
+  //       link: '/pages/maps/bubble'
+  //     },
+  //     {
+  //       title: 'Search Maps',
+  //       link: '/pages/maps/searchmap'
+  //     }
+  //   ]
   // },
   {
     title: 'Charts',
     icon: 'nb-bar-chart',
-    link: '/pages/charts/echarts',
+    link: '/pages/charts/echarts'
   },
   {
     title: 'Editors',
     icon: 'nb-title',
-    link: '/pages/editors/ckeditor',
-  },
+    link: '/pages/editors/ckeditor'
+  }
   // {
   //   title: 'Tables',
   //   icon: 'nb-tables',
-  //   link: '/pages/tables/smart-table', 
+  //   link: '/pages/tables/smart-table',
   // },
 
   // {
