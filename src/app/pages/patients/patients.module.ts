@@ -10,10 +10,6 @@ import { FinishedComponent } from './finished/finished.component';
 
 @NgModule({
   declarations: [PatientsComponent, ProcessingComponent, FinishedComponent],
-  imports: [
-    CommonModule,
-    PatientsRoutingModule,
-    Ng2SmartTableModule
-  ]
+  imports: [CommonModule, PatientsRoutingModule, Ng2SmartTableModule]
 })
-export class PatientsModule { }
+export class PatientsModule {}
