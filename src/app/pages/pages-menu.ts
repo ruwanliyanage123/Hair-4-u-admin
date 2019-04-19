@@ -13,11 +13,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Proccessing',
-        link: '/pages/maps/gmaps'
+        link: '/pages/patients/processing'
       },
       {
         title: 'Completed',
-        link: '/pages/maps/leaflet'
+        link: '/pages/patients/finished'
       }
     ]
   },

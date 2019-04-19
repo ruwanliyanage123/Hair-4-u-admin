@@ -6,13 +6,7 @@ import { Patients } from './patients.model';
   selector: 'ngx-patients',
   styles: [],
   template: `
-    <ng2-smart-table
-      (createConfirm)="addData($event)"
-      (deleteConfirm)="deleteData($event)"
-      [settings]="settings"
-      [source]="list"
-    >
-    </ng2-smart-table>
+    <router-outlet></router-outlet>
   `
 })
 export class PatientsComponent implements OnInit {
