@@ -8,6 +8,7 @@ import { Manufacture } from './manufacture.model';
   template: `
     <ng2-smart-table
       (createConfirm)="addData($event)"
+      (deleteConfirm)="deleteData($event)"
       [settings]="settings"
       [source]="manu"
     >
@@ -72,5 +73,17 @@ export class ManufactureComponent implements OnInit {
     this.service.addManufacture({ manufact: this.manu }).subscribe(next => {
       data.confirm.reject();
     });
+  }
+
+  deleteData(event) {
+    if (window.confirm('Are you sure you want to Delete?')) {
+      event.confirm.resolve(event.newData);
+      this.manu = this.manu.filter(data => data.email != event.newData.email);
+      this.service.addManufacture({ manufact: this.manu }).subscribe(next => {
+        event.confirm.reject();
+      });
+    } else {
+      event.confirm.reject();
+    }
   }
 }

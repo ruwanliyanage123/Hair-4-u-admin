@@ -26,4 +26,20 @@ export class ManufactureService {
       .doc('manufacture')
       .snapshotChanges();
   }
+
+  deleteManufacture() {
+    this.firestore
+      .collection('Manufacture')
+      .doc('manufacture')
+      .delete();
+  }
+
+  show() {
+    return this.firestore
+      .collection('Manufacture')
+      .doc('manufacture')
+      .collection('manufact')
+      .doc('0')
+      .snapshotChanges();
+  }
 }
