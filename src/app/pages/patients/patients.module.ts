@@ -5,9 +5,10 @@ import { PatientsComponent } from './patients.component';
 
 //for import the smart table
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { ProcessingComponent } from './processing/processing.component';
 
 @NgModule({
-  declarations: [PatientsComponent],
+  declarations: [PatientsComponent, ProcessingComponent],
   imports: [
     CommonModule,
     PatientsRoutingModule,
