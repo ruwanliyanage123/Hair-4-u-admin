@@ -1,17 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { Saloon } from './saloon.model';
+import { SaloonService } from './saloon.service';
 
 @Component({
   selector: 'ngx-saloon',
-  styles:[],
+  styles: [],
   template: `
-  <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+    <ng2-smart-table
+      [settings]="settings"
+      (createConfirm)="addData($event)"
+      [source]="saloon"
+    ></ng2-smart-table>
   `
 })
 export class SaloonComponent implements OnInit {
+  saloon: Saloon[] = [];
 
-  constructor() { }
+  constructor(private service: SaloonService) {}
 
   ngOnInit() {
+    this.service.getSaloon().subscribe(arr => {
+      let sal = arr.payload.get('saloon_list');
+      if (sal) {
+        this.saloon = sal;
+      }
+    });
   }
 
   settings = {
@@ -19,25 +32,33 @@ export class SaloonComponent implements OnInit {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmCreate: true
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmEdit: true
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
+      confirmDelete: true
     },
     columns: {
-      id: {
-        title: 'ID'
+      shopname: {
+        title: 'Shop Name'
       },
-      name: {
-        title: 'Full Name'
+      ownername: {
+        title: 'Owner Name'
       },
-      username: {
-        title: 'User Name'
+      nic: {
+        title: 'NIC'
+      },
+      contactnumber: {
+        title: 'Contact Number'
+      },
+      address: {
+        title: 'Address'
       },
       email: {
         title: 'Email'
@@ -45,27 +66,8 @@ export class SaloonComponent implements OnInit {
     }
   };
 
-  data = [
-    {
-      id: 1,
-      name: "Leanne Graham",
-      username: "Bret",
-      email: "Sincere@april.biz"
-    },
-    {
-      id: 2,
-      name: "Ervin Howell",
-      username: "Antonette",
-      email: "Shanna@melissa.tv"
-    },
-  
-    {
-      id: 11,
-      name: "Nicholas DuBuque",
-      username: "Nicholas.Stanton",
-      email: "Rey.Padberg@rosamond.biz"
-    }
-  ];
-
-
+  addData(event) {
+    this.saloon.push(event.newData);
+    this.service.addSaloon({ saloon_list: this.saloon });
+  }
 }
