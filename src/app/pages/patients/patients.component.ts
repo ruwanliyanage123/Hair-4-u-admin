@@ -8,6 +8,7 @@ import { Patients } from './patients.model';
   template: `
     <ng2-smart-table
       (createConfirm)="addData($event)"
+      (deleteConfirm)="deleteData($event)"
       [settings]="settings"
       [source]="list"
     >
@@ -44,17 +45,35 @@ export class PatientsComponent implements OnInit {
       confirmDelete: true
     },
     columns: {
-      id: {
-        title: 'ID'
-      },
       name: {
-        title: 'Full Name'
+        title: 'Name'
       },
-      username: {
-        title: 'User Name'
+      nic: {
+        title: 'NIC'
+      },
+      address: {
+        title: 'Address'
       },
       email: {
         title: 'Email'
+      },
+      haircolor: {
+        title: 'Hair Color'
+      },
+      measurements: {
+        title: 'Measurements'
+      },
+      hairstyle: {
+        title: 'Hair Style'
+      },
+      dob: {
+        title: 'DOB'
+      },
+      gender: {
+        title: 'Gender'
+      },
+      reports: {
+        title: 'Reports'
       }
     }
   };
@@ -65,5 +84,13 @@ export class PatientsComponent implements OnInit {
     this.service.addPatient({ data: this.list }).subscribe(next => {
       event.confirm.reject();
     });
+  }
+
+  deleteData(event) {
+    if (window.confirm('Are you sure you want to Delete?')) {
+      event.confirm.resolve(event.newData);
+    } else {
+      event.confirm.reject();
+    }
   }
 }
