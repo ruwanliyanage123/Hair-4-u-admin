@@ -21,6 +21,9 @@ export class ManufactureComponent implements OnInit {
   constructor(private service: ManufactureService) {}
 
   ngOnInit() {
+    /**
+     * this funciton will add data from firebase what we are stored in while adding
+     */
     this.service.getManufacture().subscribe(arr => {
       let manu_list = arr.payload.get('manufact');
       if (manu_list) {
@@ -83,6 +86,10 @@ export class ManufactureComponent implements OnInit {
     }
   };
 
+  /**
+   * this function will send the manu list into addManufacture() function
+   * always the list will store inside the firebase reiterately.
+   */
   addData(data) {
     this.manu.push(data.newData);
     console.log(this.manu);
@@ -91,6 +98,13 @@ export class ManufactureComponent implements OnInit {
     });
   }
 
+  /**
+   * this function for delete table data. after clicking the delete option.
+   * ann event will pass after click the delete button.
+   * find the relavent nic by event.data.nic
+   * then remove the relavent object from the source array
+   * after remain array will store in the firebase.
+   */
   deleteData(event) {
     if (window.confirm('Are you sure you want to Delete?')) {
       this.manu = this.manu.filter(obj => obj.nic !== event.data.nic);
