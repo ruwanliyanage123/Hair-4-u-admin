@@ -30,6 +30,16 @@ export class ManufactureComponent implements OnInit {
   }
 
   settings = {
+    mode: 'internal',
+    attr: {
+      id: '',
+      class: ''
+    },
+    actions: {
+      // add: false,
+      // edit: false,
+      // delete: false
+    },
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -47,22 +57,28 @@ export class ManufactureComponent implements OnInit {
     },
     columns: {
       shopname: {
-        title: 'Shop Name'
+        title: 'Shop Name',
+        hideSubHeader: true
       },
       ownername: {
-        title: 'Owner Name'
+        title: 'Owner Name',
+        hideSubHeader: true
       },
       nic: {
-        title: 'NIC'
+        title: 'NIC',
+        hideSubHeader: true
       },
       contactno: {
-        title: 'ContactNo'
+        title: 'ContactNo',
+        hideSubHeader: true
       },
       address: {
-        title: 'Address'
+        title: 'Address',
+        hideSubHeader: true
       },
       email: {
-        title: 'Email'
+        title: 'Email',
+        hideSubHeader: true
       }
     }
   };
@@ -77,6 +93,10 @@ export class ManufactureComponent implements OnInit {
 
   deleteData(event) {
     if (window.confirm('Are you sure you want to Delete?')) {
+      this.manu = this.manu.filter(obj => obj.nic !== event.data.nic);
+      this.service.addManufacture({ manufact: this.manu }).subscribe(next => {
+        event.confirm.reject();
+      });
       event.confirm.resolve(event.newData);
     } else {
       event.confirm.reject();
