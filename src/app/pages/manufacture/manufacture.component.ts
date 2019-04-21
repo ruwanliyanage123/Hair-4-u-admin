@@ -9,6 +9,7 @@ import { Manufacture } from './manufacture.model';
     <ng2-smart-table
       (createConfirm)="addData($event)"
       (deleteConfirm)="deleteData($event)"
+      (editConfirm)="editData($event)"
       [settings]="settings"
       [source]="manu"
     >
@@ -33,7 +34,7 @@ export class ManufactureComponent implements OnInit {
   }
 
   settings = {
-    mode: 'internal',
+    mode: 'inline',
     attr: {
       id: '',
       class: ''
@@ -52,7 +53,8 @@ export class ManufactureComponent implements OnInit {
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>'
+      cancelButtonContent: '<i class="nb-close"></i>',
+      confirmSave: true
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
@@ -60,28 +62,22 @@ export class ManufactureComponent implements OnInit {
     },
     columns: {
       shopname: {
-        title: 'Shop Name',
-        hideSubHeader: true
+        title: 'Shop Name'
       },
       ownername: {
-        title: 'Owner Name',
-        hideSubHeader: true
+        title: 'Owner Name'
       },
       nic: {
-        title: 'NIC',
-        hideSubHeader: true
+        title: 'NIC'
       },
       contactno: {
-        title: 'ContactNo',
-        hideSubHeader: true
+        title: 'ContactNo'
       },
       address: {
-        title: 'Address',
-        hideSubHeader: true
+        title: 'Address'
       },
       email: {
-        title: 'Email',
-        hideSubHeader: true
+        title: 'Email'
       }
     }
   };
@@ -108,6 +104,25 @@ export class ManufactureComponent implements OnInit {
   deleteData(event) {
     if (window.confirm('Are you sure you want to Delete?')) {
       this.manu = this.manu.filter(obj => obj.nic !== event.data.nic);
+      this.service.addManufacture({ manufact: this.manu }).subscribe(next => {
+        event.confirm.reject();
+      });
+      event.confirm.resolve(event.newData);
+    } else {
+      event.confirm.reject();
+    }
+  }
+
+  /**
+   * This function for store the changes in firebase
+   * first remove the previous data from the manu list
+   * after add the new changed data into manu array
+   * then manu array will store in the fitrebase
+   */
+  editData(event) {
+    if (window.confirm('Are you sure you want to save Changes?')) {
+      this.manu = this.manu.filter(obj => obj.nic !== event.data.nic);
+      this.manu.push(event.newData);
       this.service.addManufacture({ manufact: this.manu }).subscribe(next => {
         event.confirm.reject();
       });
