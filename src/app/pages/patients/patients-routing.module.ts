@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PatientsComponent } from './patients.component';
 import { ProcessingComponent } from './processing/processing.component';
 import { FinishedComponent } from './finished/finished.component';
+import { OrdersComponent } from './orders/orders.component';
 
 const routes: Routes = [
   {
@@ -10,8 +11,8 @@ const routes: Routes = [
     component: PatientsComponent,
     children: [
       {
-        path: 'processing',
-        component: ProcessingComponent
+        path: 'order',
+        component: OrdersComponent
       },
       {
         path: 'finished',

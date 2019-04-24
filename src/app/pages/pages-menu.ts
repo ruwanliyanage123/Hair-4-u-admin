@@ -12,12 +12,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     //link: '/pages/patients'
     children: [
       {
-        title: 'Proccessing',
-        link: '/pages/patients/processing'
+        title: 'Patients Details',
+        link: '/pages/patients/finished'
       },
       {
-        title: 'Completed',
-        link: '/pages/patients/finished'
+        title: 'Orders',
+        link: '/pages/patients/order'
       }
     ]
   },

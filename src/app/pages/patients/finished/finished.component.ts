@@ -23,11 +23,7 @@ export class FinishedComponent implements OnInit {
     this.service.getPatients().subscribe(actionArray => {
       let patients_data = actionArray.payload.get('data');
       if (patients_data) {
-        var filterd_patients_data = patients_data.filter(function(hero) {
-          return hero.level == 'c';
-        });
-
-        this.list = filterd_patients_data;
+        this.list = patients_data;
       }
     });
   }
@@ -79,9 +75,6 @@ export class FinishedComponent implements OnInit {
       },
       reports: {
         title: 'Reports'
-      },
-      level: {
-        title: 'Level'
       }
     }
   };
@@ -94,8 +87,19 @@ export class FinishedComponent implements OnInit {
     });
   }
 
+  /**
+   * this function for delete table data. after clicking the delete option.
+   * ann event will pass after click the delete button.
+   * find the relavent nic by event.data.nic
+   * then remove the relavent object from the source array
+   * after remain array will store in the firebase.
+   */
   deleteData(event) {
     if (window.confirm('Are you sure you want to Delete?')) {
+      this.list = this.list.filter(obj => obj.nic !== event.data.nic);
+      this.service.addPatient({ data: this.list }).subscribe(next => {
+        event.confirm.reject();
+      });
       event.confirm.resolve(event.newData);
     } else {
       event.confirm.reject();
@@ -112,7 +116,7 @@ export class FinishedComponent implements OnInit {
     if (window.confirm('Are you sure you want to save Changes?')) {
       this.list = this.list.filter(obj => obj.nic !== event.data.nic);
       this.list.push(event.newData);
-      this.service.addPatient({ manufact: this.list }).subscribe(next => {
+      this.service.addPatient({ data: this.list }).subscribe(next => {
         event.confirm.reject();
       });
       event.confirm.resolve(event.newData);
