@@ -60,9 +60,11 @@ export class ManufactureComponent implements OnInit {
       deleteButtonContent: '<i class="nb-trash"></i>',
       confirmDelete: true
     },
+
     columns: {
       shopname: {
-        title: 'Shop Name'
+        title: 'Shop Name',
+        sort: true
       },
       ownername: {
         title: 'Owner Name'

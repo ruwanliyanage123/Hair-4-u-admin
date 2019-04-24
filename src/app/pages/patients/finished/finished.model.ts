@@ -9,4 +9,5 @@ export class Finished {
   deb: string;
   gender: string;
   reports: string;
+  level: string;
 }

@@ -21,9 +21,13 @@ export class ProcessingComponent implements OnInit {
 
   ngOnInit() {
     this.service.getPatients().subscribe(actionArray => {
-      let a = actionArray.payload.get('data');
-      if (a) {
-        this.list = a;
+      let patients_data = actionArray.payload.get('data');
+      if (patients_data) {
+        var filterd_patients_data = patients_data.filter(function(hero) {
+          return hero.level == 'p';
+        });
+
+        this.list = filterd_patients_data;
       }
     });
   }
@@ -74,6 +78,9 @@ export class ProcessingComponent implements OnInit {
       },
       reports: {
         title: 'Reports'
+      },
+      level: {
+        title: 'Level'
       }
     }
   };

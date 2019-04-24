@@ -9,4 +9,5 @@ export class Processing {
   deb: string;
   gender: string;
   reports: string;
+  level: string;
 }
