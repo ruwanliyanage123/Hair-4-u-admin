@@ -12,7 +12,13 @@ import { CompletedComponent } from './wigs/completed/completed.component';
 import { WaitingComponent } from './wigs/waiting/waiting.component';
 
 @NgModule({
-  declarations: [PatientsComponent, FinishedComponent, WigsComponent, CompletedComponent, WaitingComponent],
+  declarations: [
+    PatientsComponent,
+    FinishedComponent,
+    WigsComponent,
+    CompletedComponent,
+    WaitingComponent
+  ],
   imports: [CommonModule, PatientsRoutingModule, Ng2SmartTableModule]
 })
 export class PatientsModule {}
