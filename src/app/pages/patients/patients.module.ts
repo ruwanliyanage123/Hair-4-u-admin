@@ -8,9 +8,10 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { PatientOrderComponent } from './patient-order/patient-order.component';
 import { FinishedComponent } from './finished/finished.component';
+import { WigsComponent } from './wigs/wigs.component';
 
 @NgModule({
-  declarations: [PatientsComponent, FinishedComponent, PatientOrderComponent],
+  declarations: [PatientsComponent, FinishedComponent, PatientOrderComponent, WigsComponent],
   imports: [CommonModule, PatientsRoutingModule, Ng2SmartTableModule]
 })
 export class PatientsModule {}
