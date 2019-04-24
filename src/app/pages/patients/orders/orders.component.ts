@@ -17,7 +17,6 @@ export class OrdersComponent implements OnInit {
       let patients_data = actionArray.payload.get('data');
       if (patients_data) {
         this.order_list = patients_data;
-        alert('this.order_list');
       }
     });
   }
