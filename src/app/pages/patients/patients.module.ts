@@ -6,12 +6,12 @@ import { PatientsComponent } from './patients.component';
 //for import the smart table
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
-import { PatientOrderComponent } from './patient-order/patient-order.component';
 import { FinishedComponent } from './finished/finished.component';
 import { WigsComponent } from './wigs/wigs.component';
+import { CompletedComponent } from './wigs/completed/completed.component';
 
 @NgModule({
-  declarations: [PatientsComponent, FinishedComponent, PatientOrderComponent, WigsComponent],
+  declarations: [PatientsComponent, FinishedComponent, WigsComponent, CompletedComponent],
   imports: [CommonModule, PatientsRoutingModule, Ng2SmartTableModule]
 })
 export class PatientsModule {}

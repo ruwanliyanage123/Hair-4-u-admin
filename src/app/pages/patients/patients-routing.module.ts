@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PatientsComponent } from './patients.component';
 import { FinishedComponent } from './finished/finished.component';
-import { PatientOrderComponent } from './patient-order/patient-order.component';
+import { WigsComponent } from './wigs/wigs.component';
 
 const routes: Routes = [
   {
@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       {
         path: 'order',
-        component: PatientOrderComponent
+        component: WigsComponent
       },
       {
         path: 'finished',
