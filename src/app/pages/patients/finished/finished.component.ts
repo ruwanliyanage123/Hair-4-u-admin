@@ -42,7 +42,8 @@ export class FinishedComponent implements OnInit {
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>'
+      cancelButtonContent: '<i class="nb-close"></i>',
+      confirmSave: true
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
@@ -95,6 +96,25 @@ export class FinishedComponent implements OnInit {
 
   deleteData(event) {
     if (window.confirm('Are you sure you want to Delete?')) {
+      event.confirm.resolve(event.newData);
+    } else {
+      event.confirm.reject();
+    }
+  }
+
+  /**
+   * This function for store the changes in firebase
+   * first remove the previous data from the manu list
+   * after add the new changed data into manu array
+   * then manu array will store in the fitrebase
+   */
+  editData(event) {
+    if (window.confirm('Are you sure you want to save Changes?')) {
+      this.list = this.list.filter(obj => obj.nic !== event.data.nic);
+      this.list.push(event.newData);
+      this.service.addPatient({ manufact: this.list }).subscribe(next => {
+        event.confirm.reject();
+      });
       event.confirm.resolve(event.newData);
     } else {
       event.confirm.reject();
