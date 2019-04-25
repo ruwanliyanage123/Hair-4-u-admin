@@ -1,6 +1,6 @@
-export class Finished {
-  nic: string;
+export class Waiting {
   name: string;
+  nic: string;
   address: string;
   email: string;
   haircolor: string;
@@ -8,5 +8,6 @@ export class Finished {
   hairstyle: string;
   deb: string;
   gender: string;
+  reports: string;
   level: string;
 }

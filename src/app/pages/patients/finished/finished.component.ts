@@ -46,11 +46,11 @@ export class FinishedComponent implements OnInit {
       confirmDelete: true
     },
     columns: {
-      name: {
-        title: 'Name'
-      },
       nic: {
         title: 'NIC'
+      },
+      name: {
+        title: 'Name'
       },
       address: {
         title: 'Address'
@@ -73,8 +73,8 @@ export class FinishedComponent implements OnInit {
       gender: {
         title: 'Gender'
       },
-      reports: {
-        title: 'Reports'
+      level: {
+        title: 'Level'
       }
     }
   };
