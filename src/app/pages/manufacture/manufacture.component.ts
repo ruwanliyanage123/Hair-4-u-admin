@@ -10,6 +10,7 @@ import { Manufacture } from './manufacture.model';
       (createConfirm)="addData($event)"
       (deleteConfirm)="deleteData($event)"
       (editConfirm)="editData($event)"
+      (userRowSelect)="onCustomAction($event)"
       [settings]="settings"
       [source]="manu"
     >
@@ -39,11 +40,7 @@ export class ManufactureComponent implements OnInit {
       id: '',
       class: ''
     },
-    actions: {
-      // add: false,
-      // edit: false,
-      // delete: false
-    },
+
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -132,5 +129,10 @@ export class ManufactureComponent implements OnInit {
     } else {
       event.confirm.reject();
     }
+  }
+
+  onCustomAction(event) {
+    alert(`Custom event '${event.action}' fired on row №: ${event.data.id}`);
+    //this.router.navigate(['pages/ourPage']);
   }
 }

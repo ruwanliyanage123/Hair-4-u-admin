@@ -11,6 +11,7 @@ import { FinishedService } from './finished.service';
       (createConfirm)="addData($event)"
       (editConfirm)="editData($event)"
       (deleteConfirm)="deleteData($event)"
+      (userRowSelect)="onCustomAction($event)"
       [source]="list"
     ></ng2-smart-table>
   `
@@ -45,6 +46,10 @@ export class FinishedComponent implements OnInit {
       deleteButtonContent: '<i class="nb-trash"></i>',
       confirmDelete: true
     },
+    view: {
+      viewButtonContent: ''
+    },
+
     columns: {
       nic: {
         title: 'NIC'
@@ -123,5 +128,9 @@ export class FinishedComponent implements OnInit {
     } else {
       event.confirm.reject();
     }
+  }
+  onCustomAction(event) {
+    alert(`THIS ROW HAS CLICKED`);
+    //this.router.navigate(['pages/ourPage']);
   }
 }

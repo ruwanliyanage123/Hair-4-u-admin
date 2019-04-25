@@ -15,8 +15,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore'
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,15 +28,13 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    MatButtonModule,
 
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
-    CoreModule.forRoot(),
+    CoreModule.forRoot()
   ],
   bootstrap: [AppComponent],
-  providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
-  ],
+  providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
 })
-export class AppModule {
-}
+export class AppModule {}
