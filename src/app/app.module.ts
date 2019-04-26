@@ -18,6 +18,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { MatButtonModule } from '@angular/material/button';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     MatButtonModule,
+    FormsModule,
 
     NgbModule.forRoot(),
     ThemeModule.forRoot(),

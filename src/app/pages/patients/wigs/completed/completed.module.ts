@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CompletedComponent } from './completed.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { WaitingComponent } from './waiting.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [WaitingComponent],
+  declarations: [CompletedComponent],
   imports: [
     CommonModule,
     MatDialogModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule,
-    FormsModule
+    MatInputModule
   ],
-  exports: [WaitingComponent]
+  exports: [CompletedComponent]
 })
-export class WaitingModule {}
+export class CompletedModule {}

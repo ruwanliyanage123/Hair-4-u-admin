@@ -1,1 +1,15 @@
-<button mat-button (click)="openDialog()">Open dialog</button>
+<ol>
+  <li>
+    <mat-form-field>
+      <input
+        matInput
+        [(ngModel)]="name"
+        name="name"
+        placeholder="What's your name?"
+      />
+    </mat-form-field>
+  </li>
+  <li>
+    <button mat-raised-button (click)="openDialog()">Pick one</button>
+  </li>
+</ol>

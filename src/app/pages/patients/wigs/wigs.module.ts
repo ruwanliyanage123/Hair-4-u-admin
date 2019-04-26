@@ -9,7 +9,7 @@ import { CompletedComponent } from './completed/completed.component';
 import { WigsRoutingModule } from './wigs-routing.module';
 
 @NgModule({
-  declarations: [WigsComponent, WaitingComponent, CompletedComponent],
+  declarations: [WigsComponent, CompletedComponent],
   imports: [
     CommonModule,
     WaitingModule,

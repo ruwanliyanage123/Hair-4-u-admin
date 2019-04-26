@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'ngx-waiting',
   templateUrl: './waiting.component.html',
   styleUrls: ['./waiting.component.scss']
 })
-export class WaitingComponent implements OnInit {
+export class WaitingComponent {
   constructor() {}
-
-  ngOnInit() {}
 }
