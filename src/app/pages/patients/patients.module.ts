@@ -10,9 +10,10 @@ import { FinishedComponent } from './finished/finished.component';
 
 import { WigsModule } from './wigs/wigs.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [PatientsComponent, FinishedComponent],
+  declarations: [PatientsComponent, FinishedComponent, ProfileComponent],
   imports: [
     CommonModule,
     PatientsRoutingModule,
