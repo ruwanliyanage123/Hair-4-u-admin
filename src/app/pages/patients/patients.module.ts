@@ -11,6 +11,14 @@ import { FinishedComponent } from './finished/finished.component';
 import { WigsModule } from './wigs/wigs.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ProfileComponent } from './profile/profile.component';
+import {
+  MatDialogModule,
+  MatCardModule,
+  MatIconModule,
+  MatToolbarModule
+} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [PatientsComponent, FinishedComponent, ProfileComponent],
@@ -19,7 +27,13 @@ import { ProfileComponent } from './profile/profile.component';
     PatientsRoutingModule,
     Ng2SmartTableModule,
     WigsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDialogModule,
+    MatCardModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   entryComponents: [ProfileComponent]
 })
