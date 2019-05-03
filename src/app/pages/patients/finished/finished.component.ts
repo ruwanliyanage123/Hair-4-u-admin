@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Finished } from './finished.model';
 import { FinishedService } from './finished.service';
+import { MatDialog } from '@angular/material';
+import { ProfileService } from '../profile/profile.service';
+import { ProfileComponent } from '../profile/profile.component';
 
 @Component({
   selector: 'ngx-finished',
@@ -18,7 +21,13 @@ import { FinishedService } from './finished.service';
 })
 export class FinishedComponent implements OnInit {
   list: Finished[] = [];
-  constructor(private service: FinishedService) {}
+  isPopupOpened = true;
+
+  constructor(
+    private service: FinishedService,
+    private dialog?: MatDialog,
+    private _profileService?: ProfileService
+  ) {}
 
   ngOnInit() {
     this.service.getPatients().subscribe(actionArray => {
@@ -130,7 +139,13 @@ export class FinishedComponent implements OnInit {
     }
   }
   onCustomAction(event) {
-    alert(`THIS ROW HAS CLICKED`);
-    //this.router.navigate(['pages/ourPage']);
+    this.isPopupOpened = true;
+    const dialogRef = this.dialog.open(ProfileComponent, {
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.isPopupOpened = false;
+    });
   }
 }

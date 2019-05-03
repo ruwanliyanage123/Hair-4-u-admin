@@ -20,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
     Ng2SmartTableModule,
     WigsModule,
     MatFormFieldModule
-  ]
+  ],
+  entryComponents: [ProfileComponent]
 })
 export class PatientsModule {}
