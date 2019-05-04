@@ -1,44 +1,69 @@
-<mat-card-content>
-  <div class="container">
-    <form [formGroup]="_contactForm" (submit)="onSubmit()">
-      <div class="form-group">
-        <div class="row">
-          <div class="col-md-6">
-            <label>First Name</label>
-            <input
-              type="text"
-              formControlName="FirstName"
-              class="form-control"
-            />
-          </div>
-          <div class="col-md-6">
-            <label>Last Name</label>
-            <input
-              type="text"
-              formControlName="LastName"
-              class="form-control"
-            />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label>Contact Number</label>
-            <input type="text" formControlName="Contact" class="form-control" />
-          </div>
-          <div class="col-md-6">
-            <label>Email</label>
-            <input type="text" formControlName="Email" class="form-control" />
-          </div>
-        </div>
+<mat-card>
+  <mat-card-content>
+    <div class="container">
+      <table class="table">
+        <tr>
+          <td>Nic:</td>
+          <td>:{{ patients_for_dialog.nic }}</td>
+        </tr>
+        <tr>
+          <td>Name:</td>
+          <td>:{{ patients_for_dialog.name }}</td>
+        </tr>
+        <tr>
+          <td>Address:</td>
+          <td>:{{ patients_for_dialog.address }}</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>:{{ patients_for_dialog.email }}</td>
+        </tr>
+        <tr>
+          <td>Hair Color:</td>
+          <td>:{{ patients_for_dialog.haircolor }}</td>
+        </tr>
+        <tr>
+          <td>Measurement:</td>
+          <td>:{{ patients_for_dialog.measurements }}</td>
+        </tr>
+        <tr>
+          <td>Hair Style:</td>
+          <td>:{{ patients_for_dialog.hairstyle }}</td>
+        </tr>
+        <tr>
+          <td>Dob:</td>
+          <td>:{{ patients_for_dialog.deb }}</td>
+        </tr>
+        <tr>
+          <td>gender:</td>
+          <td>:{{ patients_for_dialog.gender }}</td>
+        </tr>
+        <tr>
+          <td>Level:</td>
+          <td>{{ patients_for_dialog.level }}</td>
+        </tr>
 
-        <div class="row">
-          <div class="col-md-6">
-            <button type="submit" class="btn btn-success">
-              <mat-icon>save</mat-icon>
-            </button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-</mat-card-content>
+        <tr>
+          <button type="button" class="btn btn-success btn-rounded">
+            <mat-icon>{{ patients_for_dialog.gender }}</mat-icon>
+          </button>
+        </tr>
+      </table>
+
+      <button
+        *ngIf="patients_for_dialog.gender == 'male'"
+        type="button"
+        class="btn btn-success btn-rounded"
+      >
+        Success
+      </button>
+      <button
+        *ngIf="patients_for_dialog.gender == 'female'"
+        type="button"
+        class="btn btn-danger btn-rounded"
+      >
+        Danger
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

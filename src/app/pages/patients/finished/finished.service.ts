@@ -9,6 +9,8 @@ import { Finished } from './finished.model';
 export class FinishedService {
   patients: Finished;
 
+  patients_for_dialog: Finished;
+
   constructor(private firestore: AngularFirestore) {}
 
   /**
@@ -29,5 +31,13 @@ export class FinishedService {
         .doc('patientData')
         .set(object)
     );
+  }
+
+  setDialog(object: Finished) {
+    this.patients_for_dialog = object;
+  }
+
+  getDialog() {
+    return this.patients_for_dialog;
   }
 }

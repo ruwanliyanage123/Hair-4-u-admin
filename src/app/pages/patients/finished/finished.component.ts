@@ -95,7 +95,7 @@ export class FinishedComponent implements OnInit {
 
   addData(event) {
     this.list.push(event.newData);
-    //console.log(this.list);
+
     this.service.addPatient({ data: this.list }).subscribe(next => {
       event.confirm.reject();
     });
@@ -140,6 +140,9 @@ export class FinishedComponent implements OnInit {
   }
   onCustomAction(event) {
     this.isPopupOpened = true;
+
+    this.service.setDialog(event.data);
+
     const dialogRef = this.dialog.open(ProfileComponent, {
       data: {}
     });
