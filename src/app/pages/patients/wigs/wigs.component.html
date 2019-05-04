@@ -6,7 +6,7 @@
       </tr>
     </mat-card>
 
-    <mat-card *ngFor="let Contact of list">
+    <mat-card *ngFor="let Contact of waiting_list">
       <table class="table">
         
         <tr>
@@ -37,7 +37,7 @@
         </tr>
       </mat-card>
   
-      <mat-card *ngFor="let Contact of list">
+      <mat-card *ngFor="let Contact of ready_list">
         <table class="table">
           
           <tr>
@@ -68,7 +68,7 @@
           </tr>
         </mat-card>
     
-        <mat-card *ngFor="let Contact of list">
+        <mat-card *ngFor="let Contact of delivered_list">
           <table class="table">
             
             <tr>
