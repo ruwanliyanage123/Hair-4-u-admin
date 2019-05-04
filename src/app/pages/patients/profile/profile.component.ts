@@ -49,4 +49,11 @@ export class ProfileComponent implements OnInit {
   addRrejectLabel() {
     this.service.changeLevelToNonSelect();
   }
+
+  /**
+   * this fucntion used for mark the patients who has taken the  orders.
+   */
+  addDeleveredLabel() {
+    this.service.changeLevelToDelivered();
+  }
 }

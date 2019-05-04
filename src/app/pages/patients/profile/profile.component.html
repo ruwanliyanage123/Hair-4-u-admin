@@ -61,6 +61,15 @@
       >
         Reject
       </button>
+
+      <button
+        *ngIf="patients_for_dialog.level == 'ready'"
+        type="button"
+        class="btn btn-primary btn-rounded"
+        (click)="addDeleveredLabel()"
+      >
+        Delevered
+      </button>
     </div>
   </mat-card-content>
 </mat-card>

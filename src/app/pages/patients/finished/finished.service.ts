@@ -60,4 +60,8 @@ export class FinishedService {
   changeLevelToNonSelect() {
     alert('this is changeLevelToNonSelect');
   }
+
+  changeLevelToDelivered() {
+    alert('this is changeLevelToDelivered');
+  }
 }
