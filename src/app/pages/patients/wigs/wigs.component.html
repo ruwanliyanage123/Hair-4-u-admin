@@ -1,9 +1,95 @@
 <div class="row">
-  <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
-    <ngx-completed></ngx-completed>
+  <div class="col-md-4">
+    <mat-card>
+      <tr>
+        Waiting List
+      </tr>
+    </mat-card>
+
+    <mat-card *ngFor="let Contact of list">
+      <table class="table">
+        
+        <tr>
+          <td>Nic</td>
+          <td>{{ Contact.nic }}</td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>{{ Contact.name }}</td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td>{{ Contact.contactNumber }}</td>
+        </tr>
+        <tr>
+          <td>Deliver</td>
+          <td>2013/05/16</td>
+        </tr>
+      </table>
+
+    </mat-card>
   </div>
 
-  <div class="col-xxxl-9 col-xxl-8 col-lg-7 col-md-6">
-    <ngx-waiting></ngx-waiting>
+  <div class="col-md-4">
+      <mat-card>
+        <tr>
+          Ready List
+        </tr>
+      </mat-card>
+  
+      <mat-card *ngFor="let Contact of list">
+        <table class="table">
+          
+          <tr>
+            <td>Nic</td>
+            <td>{{ Contact.nic }}</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>{{ Contact.name }}</td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td>{{ Contact.contactNumber }}</td>
+          </tr>
+          <tr>
+            <td>Deliver</td>
+            <td>2013/05/16</td>
+          </tr>
+        </table>
+  
+      </mat-card>
   </div>
+
+  <div class="col-md-4">
+        <mat-card>
+          <tr>
+            Delivered List
+          </tr>
+        </mat-card>
+    
+        <mat-card *ngFor="let Contact of list">
+          <table class="table">
+            
+            <tr>
+              <td>Nic</td>
+              <td>{{ Contact.nic }}</td>
+            </tr>
+            <tr>
+              <td>Name</td>
+              <td>{{ Contact.name }}</td>
+            </tr>
+            <tr>
+              <td>Phone</td>
+              <td>{{ Contact.contactNumber }}</td>
+            </tr>
+            <tr>
+              <td>Deliver</td>
+              <td>2013/05/16</td>
+            </tr>
+          </table>
+    
+        </mat-card>
+  </div>
+
 </div>
