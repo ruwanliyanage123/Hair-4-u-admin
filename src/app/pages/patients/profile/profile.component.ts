@@ -28,14 +28,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.patients_for_dialog = this.service.getDialog();
-    // this._contactForm = this._formBuilder.group({
-
-    //   ID: [this.data.ID],
-    //   FirstName: [this.data.FirstName, [Validators.required]],
-    //   LastName: [this.data.LastName, [Validators.required]],
-    //   Contact: [this.data.Contact, [Validators.required]],
-    //   Email: [this.data.Email, [Validators.required]]
-    // });
   }
 
   private newMethod() {
@@ -43,4 +35,18 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit() {}
+
+  /**
+   * this funciton  used for select the non-selected patients
+   */
+  addSelectLabel() {
+    this.service.changeLevelToSelect();
+  }
+
+  /**
+   * this fucntion used for reject the patients who were already rejected
+   */
+  addRrejectLabel() {
+    this.service.changeLevelToNonSelect();
+  }
 }

@@ -42,27 +42,24 @@
           <td>Level:</td>
           <td>{{ patients_for_dialog.level }}</td>
         </tr>
-
-        <tr>
-          <button type="button" class="btn btn-success btn-rounded">
-            <mat-icon>{{ patients_for_dialog.gender }}</mat-icon>
-          </button>
-        </tr>
       </table>
 
       <button
-        *ngIf="patients_for_dialog.gender == 'male'"
+        *ngIf="patients_for_dialog.level == 'not-selected'"
         type="button"
         class="btn btn-success btn-rounded"
+        (click)="addSelectLabel()"
       >
-        Success
+        Select
       </button>
+
       <button
-        *ngIf="patients_for_dialog.gender == 'female'"
+        *ngIf="patients_for_dialog.level == 'selected'"
         type="button"
         class="btn btn-danger btn-rounded"
+        (click)="addRrejectLabel()"
       >
-        Danger
+        Reject
       </button>
     </div>
   </mat-card-content>

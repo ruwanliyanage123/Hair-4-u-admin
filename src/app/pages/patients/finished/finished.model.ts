@@ -3,6 +3,7 @@ export class Finished {
   name: string;
   address: string;
   email: string;
+  contactNumber: string;
   haircolor: string;
   measurements: string;
   hairstyle: string;

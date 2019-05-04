@@ -72,6 +72,9 @@ export class FinishedComponent implements OnInit {
       email: {
         title: 'Email'
       },
+      contactNumber: {
+        title: 'Contact Number'
+      },
       haircolor: {
         title: 'Hair Color'
       },
@@ -94,6 +97,7 @@ export class FinishedComponent implements OnInit {
   };
 
   addData(event) {
+    event.newData.level = 'not-selected';
     this.list.push(event.newData);
 
     this.service.addPatient({ data: this.list }).subscribe(next => {

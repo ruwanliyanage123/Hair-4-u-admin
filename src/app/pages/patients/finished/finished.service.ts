@@ -33,11 +33,31 @@ export class FinishedService {
     );
   }
 
+  /**
+   * this function used for get and display data from table
+   */
   setDialog(object: Finished) {
     this.patients_for_dialog = object;
   }
 
+  /**
+   * this function used for get and display data from table
+   */
   getDialog() {
     return this.patients_for_dialog;
+  }
+
+  /**
+   * this used for change level from non-selected to selected in database
+   */
+  changeLevelToSelect() {
+    alert('this is changeLevelToSelect');
+  }
+
+  /**
+   * this used for change level from selected to non-selected in database
+   */
+  changeLevelToNonSelect() {
+    alert('this is changeLevelToNonSelect');
   }
 }
