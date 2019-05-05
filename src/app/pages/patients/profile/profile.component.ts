@@ -11,8 +11,11 @@ import { Finished } from '../finished/finished.model';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  public _contactForm: FormGroup;
+  public _contactForm: FormGroup; //for dealing with the form group
   patients_for_dialog: Finished;
+
+  list: Finished[] = []; //this list will help for change the level
+  patients_for_temporary: Finished; //this used for containing the changed values.
 
   constructor(
     private service: FinishedService,
@@ -27,7 +30,20 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    //this used for popup the dialog
     this.patients_for_dialog = this.service.getDialog();
+
+    /**
+     * this used for taken the complete list of patients.
+     * First of all list will modify when changed the level
+     * After that this list will replace the databse
+     */
+    this.service.getPatients().subscribe(actionArray => {
+      let patients_data = actionArray.payload.get('data');
+      if (patients_data) {
+        this.list = patients_data;
+      }
+    });
   }
 
   private newMethod() {
@@ -38,9 +54,19 @@ export class ProfileComponent implements OnInit {
 
   /**
    * this funciton  used for select the non-selected patients
+   * this will change the level from 'not-selected' to 'waiting' where the invoked patient's objects
    */
   addSelectLabel() {
-    this.service.changeLevelToSelect();
+    this.patients_for_temporary = this.patients_for_dialog;
+    this.patients_for_temporary.level = 'waiting';
+
+    if (window.confirm('Are you sure you want to change Level?')) {
+      this.list = this.list.filter(
+        obj => obj.nic !== this.patients_for_dialog.nic
+      );
+      this.list.push(this.patients_for_temporary);
+      this.service.addPatient({ data: this.list }).subscribe(next => {});
+    }
   }
 
   /**
