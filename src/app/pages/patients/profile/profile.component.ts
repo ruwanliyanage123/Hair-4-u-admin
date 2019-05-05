@@ -70,7 +70,7 @@ export class ProfileComponent implements OnInit {
   }
 
   /**
-   * this fucntion used for reject the patients who were already rejected
+   * this fucntion used for reject the patients who were already waiting
    * this will change the level from 'waiting' to 'rejected' where the invoked patient's objects
    */
   addRrejectLabel() {
@@ -88,8 +88,18 @@ export class ProfileComponent implements OnInit {
 
   /**
    * this fucntion used for mark the patients who has taken the  orders.
+   * this will change the level from 'ready' to 'delivered' where the invoked patient's objects
    */
   addDeleveredLabel() {
-    this.service.changeLevelToDelivered();
+    this.patients_for_temporary = this.patients_for_dialog;
+    this.patients_for_temporary.level = 'delivered';
+
+    if (window.confirm('Are you sure you want to change Level?')) {
+      this.list = this.list.filter(
+        obj => obj.nic !== this.patients_for_dialog.nic
+      );
+      this.list.push(this.patients_for_temporary);
+      this.service.addPatient({ data: this.list }).subscribe(next => {});
+    }
   }
 }
