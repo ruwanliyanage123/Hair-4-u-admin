@@ -11,6 +11,10 @@ export class SaloonService {
 
   constructor(private firestore: AngularFirestore) {}
 
+  /**
+   * This funciton used for add new saloon for the database
+   */
+
   addSaloon(object) {
     return from(
       this.firestore
@@ -20,6 +24,9 @@ export class SaloonService {
     );
   }
 
+  /**
+   * This function used for retrieve saloon data from database
+   */
   getSaloon() {
     return this.firestore
       .collection('Saloon')

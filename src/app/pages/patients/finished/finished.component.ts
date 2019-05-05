@@ -55,9 +55,6 @@ export class FinishedComponent implements OnInit {
       deleteButtonContent: '<i class="nb-trash"></i>',
       confirmDelete: true
     },
-    view: {
-      viewButtonContent: ''
-    },
 
     columns: {
       nic: {

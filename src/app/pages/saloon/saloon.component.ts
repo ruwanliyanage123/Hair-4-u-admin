@@ -11,12 +11,12 @@ import { SaloonService } from './saloon.service';
       (createConfirm)="addData($event)"
       (editConfirm)="editData($event)"
       (deleteConfirm)="deleteData($event)"
-      [source]="saloon"
+      [source]="list"
     ></ng2-smart-table>
   `
 })
 export class SaloonComponent implements OnInit {
-  saloon: Saloon[] = [];
+  list: Saloon[] = [];
 
   constructor(private service: SaloonService) {}
 
@@ -24,7 +24,7 @@ export class SaloonComponent implements OnInit {
     this.service.getSaloon().subscribe(arr => {
       let sal = arr.payload.get('saloon_list');
       if (sal) {
-        this.saloon = sal;
+        this.list = sal;
       }
     });
   }
@@ -39,7 +39,8 @@ export class SaloonComponent implements OnInit {
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>'
+      cancelButtonContent: '<i class="nb-close"></i>',
+      confirmSave: true
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
@@ -68,8 +69,8 @@ export class SaloonComponent implements OnInit {
   };
 
   addData(event) {
-    this.saloon.push(event.newData);
-    this.service.addSaloon({ saloon_list: this.saloon });
+    this.list.push(event.newData);
+    this.service.addSaloon({ saloon_list: this.list });
   }
 
   deleteData(event) {
@@ -79,5 +80,23 @@ export class SaloonComponent implements OnInit {
       event.confirm.reject();
     }
   }
-  editData($event) {}
+
+  /**
+   * This function for store the changes in firebase
+   * first remove the previous data from the manu list
+   * after add the new changed data into manu array
+   * then manu array will store in the fitrebase
+   */
+  editData(event) {
+    if (window.confirm('Are you sure you want to save Changes?')) {
+      this.list = this.list.filter(obj => obj.nic !== event.data.nic);
+      this.list.push(event.newData);
+      this.service.addSaloon({ saloon_list: this.list }).subscribe(next => {
+        event.confirm.reject();
+      });
+      event.confirm.resolve(event.newData);
+    } else {
+      event.confirm.reject();
+    }
+  }
 }
