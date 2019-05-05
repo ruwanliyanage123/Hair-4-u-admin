@@ -2,6 +2,21 @@ import { Injectable } from '@angular/core';
 import { from } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Finished } from './finished.model';
+   */
+
+  getPatients() {
+    return this.firestore
+      .collection('patients')
+      .doc('patientData')
+      .snapshotCh        .collection('patients')
+        .doc('patientData')
+        .set(object)
+    );
+  }
+
+  /**
+   * this function usimport { firestore } from 'firebase';
+import firebase = require('firebase');
 
 @Injectable({
   providedIn: 'root'
@@ -55,13 +70,16 @@ export class FinishedService {
   }
 
   /**
-   * this used for change level from selected to non-selected in database
+   * this used for change le('this is changeLevelToSelect');
    */
   changeLevelToNonSelect() {
-    alert('this is changeLevelToNonSelect');
-  }
+    alelect() {
+alert('this is changeLevelToNonSelect');
 
-  changeLevelToDelivered() {
-    alert('this is changeLevelToDelivered');
-  }
-}
+*
+   * this used for cha from selecteds used for chelLloNechangeLevelToNonSelect() {
+    alert('this is changeLevelToNonSelect');
+
+    var bject = [
+      {
+        name: 'kamal',
