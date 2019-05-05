@@ -73,14 +73,6 @@ export class SaloonComponent implements OnInit {
     this.service.addSaloon({ saloon_list: this.list });
   }
 
-  deleteData(event) {
-    if (window.confirm('Are you sure you want to Delete?')) {
-      event.confirm.resolve(event.newData);
-    } else {
-      event.confirm.reject();
-    }
-  }
-
   /**
    * This function for store the changes in firebase
    * first remove the previous data from the manu list
@@ -91,6 +83,25 @@ export class SaloonComponent implements OnInit {
     if (window.confirm('Are you sure you want to save Changes?')) {
       this.list = this.list.filter(obj => obj.nic !== event.data.nic);
       this.list.push(event.newData);
+      this.service.addSaloon({ saloon_list: this.list }).subscribe(next => {
+        event.confirm.reject();
+      });
+      event.confirm.resolve(event.newData);
+    } else {
+      event.confirm.reject();
+    }
+  }
+
+  /**
+   * this function for delete table data. after clicking the delete option.
+   * ann event will pass after click the delete button.
+   * find the relavent nic by event.data.nic
+   * then remove the relavent object from the source array
+   * after remain array will store in the firebase.
+   */
+  deleteData(event) {
+    if (window.confirm('Are you sure you want to Delete?')) {
+      this.list = this.list.filter(obj => obj.nic !== event.data.nic);
       this.service.addSaloon({ saloon_list: this.list }).subscribe(next => {
         event.confirm.reject();
       });
