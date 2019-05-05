@@ -71,9 +71,19 @@ export class ProfileComponent implements OnInit {
 
   /**
    * this fucntion used for reject the patients who were already rejected
+   * this will change the level from 'waiting' to 'rejected' where the invoked patient's objects
    */
   addRrejectLabel() {
-    this.service.changeLevelToNonSelect();
+    this.patients_for_temporary = this.patients_for_dialog;
+    this.patients_for_temporary.level = 'not-selected';
+
+    if (window.confirm('Are you sure you want to change Level?')) {
+      this.list = this.list.filter(
+        obj => obj.nic !== this.patients_for_dialog.nic
+      );
+      this.list.push(this.patients_for_temporary);
+      this.service.addPatient({ data: this.list }).subscribe(next => {});
+    }
   }
 
   /**
