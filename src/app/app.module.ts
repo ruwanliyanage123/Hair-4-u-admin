@@ -19,9 +19,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SignInComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

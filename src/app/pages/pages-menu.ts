@@ -59,11 +59,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
   //     }
   //   ]
   // },
-  {
-    title: 'Charts',
-    icon: 'nb-bar-chart',
-    link: '/pages/charts/echarts'
-  },
+
+  // {
+  //   title: 'Charts',
+  //   icon: 'nb-bar-chart',
+  //   link: '/pages/charts/echarts'
+  // },
+
   {
     title: 'Editors',
     icon: 'nb-title',
