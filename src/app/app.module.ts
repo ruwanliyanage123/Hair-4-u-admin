@@ -23,9 +23,17 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { AuthService } from './shared/services/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @NgModule({
-  declarations: [AppComponent, SignInComponent, SignUpComponent, ForgotPasswordComponent, VerifyEmailComponent],
+  declarations: [
+    AppComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -41,6 +49,10 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
     CoreModule.forRoot()
   ],
   bootstrap: [AppComponent],
-  providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
+  providers: [
+    AuthService,
+    AngularFireAuth,
+    { provide: APP_BASE_HREF, useValue: '/' }
+  ]
 })
 export class AppModule {}
