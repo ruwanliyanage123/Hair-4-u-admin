@@ -56,7 +56,7 @@ export class ProfileComponent implements OnInit {
    * this funciton  used for select the non-selected patients
    * this will change the level from 'not-selected' to 'waiting' where the invoked patient's objects
    */
-  addSelectLabel() {
+  addSelectLabel(event) {
     this.patients_for_temporary = this.patients_for_dialog;
     this.patients_for_temporary.level = 'waiting';
 
@@ -66,6 +66,8 @@ export class ProfileComponent implements OnInit {
       );
       this.list.push(this.patients_for_temporary);
       this.service.addPatient({ data: this.list }).subscribe(next => {});
+    } else {
+      event.confirm.reject();
     }
   }
 

@@ -21,11 +21,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
       }
     ]
   },
-  {
-    title: 'Manufacture',
-    icon: 'nb-home',
-    link: '/pages/manufacture'
-  },
+  // {
+  //   title: 'Manufacture',
+  //   icon: 'nb-home',
+  //   link: '/pages/manufacture'
+  // },
   {
     title: 'Saloon',
     icon: 'nb-home',
