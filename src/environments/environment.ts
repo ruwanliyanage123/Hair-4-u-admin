@@ -11,11 +11,11 @@
 export const environment = {
   production: false,
   firebaseConfig :{
-    apiKey: "AIzaSyDKyE2LcMbvrvy7CRInDPjAZLjx2xU--T4",
-    authDomain: "hairforyou-2b7f8.firebaseapp.com",
-    databaseURL: "https://hairforyou-2b7f8.firebaseio.com",
-    projectId: "hairforyou-2b7f8",
-    storageBucket: "hairforyou-2b7f8.appspot.com",
-    messagingSenderId: "983377625388"
+    apiKey: "AIzaSyCSY0vUoO3470cMtE4EI6u8KrKBzDcIBJU",
+    authDomain: "hairforyou-aa065.firebaseapp.com",
+    databaseURL: "https://hairforyou-aa065.firebaseio.com",
+    projectId: "hairforyou-aa065",
+    storageBucket: "hairforyou-aa065.appspot.com",
+    messagingSenderId: "627056228935",   
   }
 };

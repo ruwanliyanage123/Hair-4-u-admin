@@ -54,8 +54,23 @@ export class PatientsComponent implements OnInit {
       haircolor: {
         title: 'Hair Color'
       },
-      measurements: {
-        title: 'Measurements'
+      M1: {
+        title: 'M1'
+      },
+      M2: {
+        title: 'M2'
+      },
+      M3: {
+        title: 'M3'
+      },
+      M4: {
+        title: 'M4'
+      },
+      M5: {
+        title: 'M5'
+      },
+      M6: {
+        title: 'M6'
       },
       hairstyle: {
         title: 'Hair Style'
