@@ -16,7 +16,8 @@ const routes: Routes = [
       {
         path: 'finished',
         component: FinishedComponent
-      }
+      },
+      
     ]
   }
 ];

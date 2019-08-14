@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ProfileService } from './profile.service';
 import { FinishedService } from '../finished/finished.service';
 import { Finished } from '../finished/finished.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-profile',
@@ -22,6 +23,7 @@ export class ProfileComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<ProfileComponent>,
     private _profileService: ProfileService,
+    private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
@@ -103,5 +105,11 @@ export class ProfileComponent implements OnInit {
       this.list.push(this.patients_for_temporary);
       this.service.addPatient({ data: this.list }).subscribe(next => {});
     }
+  }
+
+  btnClick(event) {
+    //alert('http http');
+    this.router.navigate(['pages/saloon']);
+    //alert('this is the task' + event.email);
   }
 }
