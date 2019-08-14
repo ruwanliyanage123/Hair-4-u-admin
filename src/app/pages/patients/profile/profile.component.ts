@@ -5,6 +5,8 @@ import { ProfileService } from './profile.service';
 import { FinishedService } from '../finished/finished.service';
 import { Finished } from '../finished/finished.model';
 import { Router } from '@angular/router';
+import { EmailsService } from '../../emails/emails.service';
+import { stringify } from '@angular/core/src/util';
 
 @Component({
   selector: 'ngx-profile',
@@ -20,6 +22,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private service: FinishedService,
+    private email_service: EmailsService,
     private _formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<ProfileComponent>,
     private _profileService: ProfileService,
@@ -107,9 +110,11 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  name: string;
+
   btnClick(event) {
-    //alert('http http');
-    this.router.navigate(['pages/saloon']);
-    //alert('this is the task' + event.email);
+    this.router.navigate(['pages/emails']);
+    this.name = event.email;
+    this.email_service.setEmailAddress(this.name);
   }
 }
