@@ -19,6 +19,7 @@
   >
     <nb-action *nbIsGranted="['view', 'user']">
       <nb-user
+        (click)="startSearch()"
         [nbContextMenu]="userMenu"
         [name]="user?.name"
         [picture]="user?.picture"
