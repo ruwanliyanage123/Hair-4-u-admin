@@ -66,10 +66,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
   //   link: '/pages/charts/echarts'
   // },
 
+  // {
+  //   title: 'Editors',
+  //   icon: 'nb-title',
+  //   link: '/pages/editors/ckeditor'
+  // }
+
   {
-    title: 'Editors',
+    title: 'Emails',
     icon: 'nb-title',
-    link: '/pages/editors/ckeditor'
+    link: '/pages/emails'
   }
   // {
   //   title: 'Tables',
