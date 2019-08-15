@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CKEditorModule } from 'ng2-ckeditor';
 
 @NgModule({
   declarations: [EmailsComponent],
@@ -13,10 +14,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     EmailsRoutingModule,
     FormsModule,
-
     NgbModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [EmailsComponent]

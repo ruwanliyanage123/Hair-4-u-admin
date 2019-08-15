@@ -11,7 +11,7 @@ export class EmailsService {
   emailAddress: string;
 
   sendEmail(obj): Observable<Iinfo> {
-    return this.http.post<Iinfo>('http://localhost:3000/sendFormData', obj);
+    return this.http.post<Iinfo>('http://localhost:3000/sendFormData', obj)
   }
 
   setEmailAddress(email) {

@@ -70,7 +70,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   //   title: 'Editors',
   //   icon: 'nb-title',
   //   link: '/pages/editors/ckeditor'
-  // }
+  // },
 
   {
     title: 'Emails',
