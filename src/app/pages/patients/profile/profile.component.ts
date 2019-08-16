@@ -111,10 +111,13 @@ export class ProfileComponent implements OnInit {
   }
 
   name: string;
+  email: string;
 
   btnClick(event) {
-    this.name = event.email;
-    this.email_service.setEmailAddress(this.name);
+    this.email = event.email;
+    this.name = event.name;
+    this.email_service.setEmailAddress(this.email);
+    this.email_service.setName(this.name );
     this.dialogRef.close();
     this.router.navigate(['pages/emails']);
   }

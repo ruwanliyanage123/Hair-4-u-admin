@@ -19,21 +19,27 @@ export class EmailsComponent implements OnInit {
   infoForm: FormGroup;
   public subscription: Subscription;
   emailAddress: string;
+  nameA: string;
   constructor(private email_service: EmailsService, private fb: FormBuilder) {}
 
   ngOnInit() {
     this.emailAddress = this.email_service.getEmailAddress();
-    console.log(this.emailAddress);
+    this.nameA = this.email_service.getName();
+    //console.log(this.emailAddress);
     // alert(this.emailAddress);
     this.infoForm = new FormGroup({
       email: new FormControl(this.emailAddress, {
         validators: [Validators.required, Validators.email]
       }),
-      subject: new FormControl('', { validators: [Validators.required] }),
+      subject: new FormControl('For inform about the wig order', {
+        validators: [Validators.required]
+      }),
       content: new FormControl(
         `
-       Dear ${this.emailAddress},\n
-       You have successfully registered as a patient. So ${this.emailAddress}\n
+       Dear ${this.nameA},\n
+       We are from the apeksha Hospital.
+       Congradulations! your wig order has received for manufacture.If you want to know about any other informations you can contact us via 
+       0772308519 or this slsiyapatha@gmail.com
        Thank you!\n
        `,
         { validators: [Validators.required] }
